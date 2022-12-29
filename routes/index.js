@@ -13,10 +13,10 @@ router.get('/notes', (req, res) =>{
 router.post('/notes', (req, res) =>{
     console.log(req.body)
     dataBase.push(req.body)
-    fs.writeFile('../db/db.json' , JSON.stringify(dataBase) , err => {
+    fs.writeFile('../db.json' , JSON.stringify(dataBase) , err => {
         if (err) throw err
     })
-    
+
 });
 
 module.exports = router
