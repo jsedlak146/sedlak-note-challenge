@@ -2,7 +2,12 @@
 
 ## Description
 
-For this challenge, we had to connect front end and back end operations to create a running note taker and saver for small business purposes.
+For this challenge, we had to connect front end and back end operations to create a running note taker and saver for small business purposes. Below are my URLs for the repo and website:
+
+https://github.com/jsedlak146/sedlak-note-challenge
+
+https://sedlak-note-taking.herokuapp.com/
+
 
 ## Installation
 
