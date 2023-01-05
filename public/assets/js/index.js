@@ -69,12 +69,11 @@ const renderActiveNote = () => {
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
-    text: noteText.value,
+    text: noteText.value
   };
-  saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
+  saveNote(newNote).finally(
+    getAndRenderNotes()
+  )
 };
 
 // Delete the clicked note
@@ -89,11 +88,11 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
-  deleteNote(noteId).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
+  deleteNote(noteId).finally(
+    getAndRenderNotes()
+  );
 };
+
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
@@ -171,7 +170,8 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
+// Gets notes from the db and renders them to the sidebar
+const getAndRenderNotes = () => getNotes().then(resp => renderNoteList(resp)).catch(error => console.log('Error: ', error)).finally(renderActiveNote());
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
