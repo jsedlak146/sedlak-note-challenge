@@ -16,7 +16,7 @@ router.post('/notes', (req, res) =>{
     console.log(req.body)
     req.body.id = uuidv4()
     dataBase.push(req.body)
-    fs.writeFile('../db.json' , JSON.stringify(dataBase) , err => {
+    fs.writeFile('db/db.json' , JSON.stringify(dataBase) , err => {
         if (err) throw err
         // else {
         //     console.log("Note written successfully\n");
@@ -29,7 +29,7 @@ router.post('/notes', (req, res) =>{
 router.delete('/notes/:id', (req) => {
     const { id } = req.params
     let db = dataBase.filter(note => note.id != id)
-    fs.writeFile('../db.json' , JSON.stringify(db) , err => {
+    fs.writeFile('db/db.json' , JSON.stringify(db) , err => {
         if (err) throw err
         // else {
         //     console.log("Note deleted successfully\n");
