@@ -27,17 +27,18 @@ router.post('/notes', (req, res) =>{
 });
 
 router.delete('/notes/:id', (req) => {
-    const { id } = req.params
-    let db = dataBase.filter(note => note.id != id)
-    fs.writeFile('db/db.json' , JSON.stringify(db) , err => {
-        if (err) throw err
-        // else {
-        //     console.log("Note deleted successfully\n");
-        //     console.log("The database has the following contents:");
-        //     console.log(fs.readFileSync("../db.json", "utf8"));
-        // }
-    })
-    dataBase = db
+    console.log('delete')
+    // const { id } = req.params
+    // let db = dataBase.filter(note => note.id != id)
+    // fs.writeFile('db/db.json' , JSON.stringify(db) , err => {
+    //     if (err) throw err
+    //     // else {
+    //     //     console.log("Note deleted successfully\n");
+    //     //     console.log("The database has the following contents:");
+    //     //     console.log(fs.readFileSync("../db.json", "utf8"));
+    //     // }
+    // })
+    // dataBase = db
 })
 
 module.exports = router
